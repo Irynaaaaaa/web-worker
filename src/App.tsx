@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import ExpensiveFibonacci from './components/ExpensiveFibonacci';
+import Fibonacci from './components/Fibonacci';
+import ColorComponent from './components/ColorComponent';
 import './App.css';
+
+//ExpensiveFibonacci blocks the entire UI when calculating the Fibonacci number. ColorComponent is not able to change the color, inputs are blocked, and the button is not clickable.
+//Fibonacci uses a Web Worker to calculate the Fibonacci number in a separate thread.
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ExpensiveFibonacci />
+      <Fibonacci />
+      <ColorComponent />
     </div>
   );
 }
