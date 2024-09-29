@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Spinner from './Spinner';
+import Worker from 'worker-loader!./fibonacci.worker.ts';
 
 const Fibonacci = () => {
   const [num, setNum] = useState(40);
@@ -17,9 +18,7 @@ const Fibonacci = () => {
   };
 
   useEffect(() => {
-    const workerInstance = new Worker(new URL('./worker.ts', import.meta.url), {
-      type: 'module',
-    });
+    const workerInstance = new Worker();
 
     workerInstance.onmessage = function (event) {
       setResult(event.data);
